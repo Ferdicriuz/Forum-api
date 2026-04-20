@@ -1,20 +1,28 @@
 {
   "name": "forum-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ferdicriuz/Forum-api.git"
+    "url": "https://github.com/ferdicriuz/Forum-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ferdicriuz/Forum-api/issues"
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.23.0"
   },
-  "homepage": "https://github.com/ferdicriuz/Forum-api#readme",
-  "description": ""
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }
