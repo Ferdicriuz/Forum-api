@@ -4,10 +4,11 @@
 Backend API for a discussion forum with support for nested and threaded comments.
 
 ## Features
-- Create posts
-- Comment on posts
-- Nested replies
-- User authentication
+- Authentication (JWT)
+- Threads CRUD
+- Nested Comments
+- Voting System (threads & comments)
+- Admin Moderation
 
 ## Installation
 

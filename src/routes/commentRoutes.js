@@ -4,5 +4,6 @@ const ctrl = require("../controllers/commentController");
 
 router.post("/threads/:id/comments", auth, ctrl.addComment);
 router.post("/comments/:id/reply", auth, ctrl.replyComment);
+router.post("/comments/:id/vote", auth, ctrl.voteComment);
 
 module.exports = router;

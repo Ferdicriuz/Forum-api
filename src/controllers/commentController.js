@@ -22,3 +22,23 @@ exports.replyComment = async (req, res) => {
 
   res.json(reply);
 };
+
+
+exports.voteComment = async (req, res) => {
+  const { value } = req.body;
+  const comment = await Comment.findById(req.params.id);
+
+  const existingVote = comment.votes.find(
+    v => v.user.toString() === req.user.id
+  );
+
+  if (existingVote) {
+    existingVote.value = value;
+  } else {
+    comment.votes.push({ user: req.user.id, value });
+  }
+
+  await comment.save();
+
+  res.json({ message: "Vote recorded", votes: comment.votes });
+};

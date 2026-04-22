@@ -41,3 +41,23 @@ exports.deleteThread = async (req, res) => {
   await Thread.findByIdAndDelete(req.params.id);
   res.json({ message: "Thread deleted" });
 };
+
+
+exports.voteThread = async (req, res) => {
+  const { value } = req.body; // 1 or -1
+  const thread = await Thread.findById(req.params.id);
+
+  const existingVote = thread.votes.find(
+    v => v.user.toString() === req.user.id
+  );
+
+  if (existingVote) {
+    existingVote.value = value; // update vote
+  } else {
+    thread.votes.push({ user: req.user.id, value });
+  }
+
+  await thread.save();
+
+  res.json({ message: "Vote recorded", votes: thread.votes });
+};
